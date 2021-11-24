@@ -15,8 +15,11 @@
                     Posted by
                     <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
                     <br>{{ post.date_posted|date:"F d, Y" }}
-                </p>
-            </div>
+                    <div>
+                      <i class="heart fa fa-heart-o"></i> 
+                    </div>
+                    
+                
 
 
               <!-- <div class="article-metadata">
