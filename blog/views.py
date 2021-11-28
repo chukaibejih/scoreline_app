@@ -1,9 +1,10 @@
 from django.db.models.fields import files
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from . models import Post
+from . models import Comment, Post
 
 
 # Create your views here.
@@ -47,6 +48,12 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form) 
+
+class CommentCreateView(CreateView):
+    model = Comment
+    template_name = 'blog/add_comments.html'
+    fields =  '__all__'
+    success_url = reverse_lazy('blog-home')
 
 class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
     model = Post
