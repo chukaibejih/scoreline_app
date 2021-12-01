@@ -1,11 +1,7 @@
-$(document).ready(function(){
-  $("#heart").click(function(){
-    if($("#heart").hasClass("liked")){
-      $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
-      $("#heart").removeClass("liked");
-    }else{
-      $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
-      $("#heart").addClass("liked");
-    }
-  });
-});
+var i;
+var divs = document.getElementById('#article_length');
+for(i=0;i<divs.length;i++) {
+  if(divs[i].className == 'myclass') {
+    divs[i].innerHTML = divs[i].innerHTML.substring(0,300);
+  }
+}

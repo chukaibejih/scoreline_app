@@ -1,13 +1,15 @@
 from django.db.models.fields import files
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from . models import Comment, Post
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
+
 
 
 def home(request):
@@ -15,6 +17,11 @@ def home(request):
         'posts': Post.objects.all()
     }
     return render(request, 'blog/home.html', context)
+
+def LikeView(request, pk):
+    post= get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('post-detail', args=[str(pk)]))
 
 
 class PostListView(ListView):
