@@ -10,10 +10,10 @@
               <div class="post-preview">
                     <h4>{{ post.title }}</h4><hr>
                     <div id="article_length">
-                      <p class="article-content">{{ post.content|truncatechars_html:200 }}<a href="{% url 'post-detail' post.id %}">Read More >></a></p>
+                      <p class="article-content">{{ post.content|truncatechars_html:100 }}<a href="{% url 'post-detail' post.id %}">Read More</a></p>
                     </div>
                 <p class="post-meta"><strong>
-                    Posted by
+                    Posted by 
                     </strong>
                     <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
                     <br><strong>{{ post.date_posted|date:"F d, Y" }}</strong>

@@ -18,7 +18,7 @@
       <p class="article-content">{{ object.content }}</p>
       <!-- like -->
       <br>
-      <form action="{% url 'like_post' post.pk %}" method="POST">
+      <form action="{% url 'like-post' post.pk %}" method="POST">
         {% csrf_token %}
         <button type="submit", name="post_id", value="{{ post.id}}", class="btn btn-primary btn-sm">Like</button>
       </form>  
