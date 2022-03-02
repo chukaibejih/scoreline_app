@@ -1,12 +1,17 @@
 # scoreline_app
 This is a a django blog called "Scoreline"
 
-It has basic features: 
-- User Registration
-- Create profile
-- Edit/Update Profile {profile picture, username and email)
-- It has a comment sectio and a like button
-- Reset email
-
- This project was deployed with Heroku. 
- More changes will be made to this project. 
+Developed with Python (Django framework),
+HTML, CSS, Bootstrap and deployed with
+Heroku.
+The features of the app include:
+- Admin Page
+- User Registration Form
+- Login/ Logout Authentication
+- Profile creation and Image Upload
+- Update User Profile
+- Create, Update and Delete Posts
+- Pagintion
+- Password Reset
+- Comments
+- AWS-S3 Upload
